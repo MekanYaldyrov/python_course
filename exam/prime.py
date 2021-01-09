@@ -1,15 +1,13 @@
-prime_numbers = [2]
-
-
 def prime_gen(limit):
-    for i in range(3, limit):
-        for j in range(2, i):
+    for i in range(2, limit):
+        j = 2
+        while j < i:
             if i % j == 0:
                 break
+            j += 1
         else:
-            prime_numbers.append(i)
+            yield i
 
 
-a = int(input('Введите число, до которого будет проводиться поиск\n'))
-prime_gen(a)
-print(prime_numbers)
+a = int(input('Введите число, до которго будет проводиться поиск\n'))
+print(list(prime_gen(a)))
